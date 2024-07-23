@@ -229,7 +229,7 @@ class Target(BaseModel):
 def get_target_name(target):
     return '_'.join(target.value.split())
 
-example_photos_dir = "/home/azureuser/customers/sdsc/overeasy-internal/example_photos/"
+example_photos_dir = "example_photos"
 app = modal.App(mounts=[
     modal.Mount.from_local_dir(local_path=example_photos_dir, remote_path=example_photos_dir)
 ])
@@ -328,13 +328,13 @@ def modal_execute(image: Image.Image):
 
 @app.local_entrypoint()
 def main():
-    label_mappings_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/labels/VID75.json"
+    label_mappings_path = "cholect50-challenge-val/labels/VID75.json"
     with open(label_mappings_path, 'r') as file:
         label_mappings = json.load(file)
     triplet_mappings = {v: k for k, v in label_mappings["categories"]["triplet"].items()}
 
-    vid75_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/labels/VID75.json"
-    video_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/videos/VID75"
+    vid75_path = "cholect50-challenge-val/labels/VID75.json"
+    video_path = "cholect50-challenge-val/videos/VID75"
 
     with open(vid75_path, 'r') as file:
         vid75_mappings = json.load(file)
