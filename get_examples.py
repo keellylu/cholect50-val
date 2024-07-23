@@ -30,15 +30,15 @@ results = {
 }
 
 # Retrieve id mappings
-label_mappings_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/labels/VID74.json"
+label_mappings_path = "cholect50-challenge-val/labels/VID74.json"
 with open(label_mappings_path, 'r') as file:
     label_mappings = json.load(file)
 
 instrument_mappings = {v: k for k, v in label_mappings["categories"]["instrument"].items()}
 triplet_mappings = {v: k for k, v in label_mappings["categories"]["triplet"].items()}
 
-vid74_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/labels/VID74.json"
-video_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/videos/VID74"
+vid74_path = "cholect50-challenge-val/labels/VID74.json"
+video_path = "cholect50-challenge-val/videos/VID74"
 
 with open(vid74_path, 'r') as file:
     vid74_mappings = json.load(file)
@@ -74,7 +74,7 @@ irrigator_images = results["irrigator"]
 
 def get_crop(image_name, bb, tool_name):
     x, y, width, height = bb
-    video_path = "/home/azureuser/customers/sdsc/overeasy-internal/cholect50-challenge-val/videos/VID74"
+    video_path = "cholect50-challenge-val/videos/VID74"
     image_path = video_path + "/" + image_name
     
     with Image.open(image_path) as im:
